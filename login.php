@@ -12,8 +12,8 @@ if (isset($_POST['submit'])) {
         $user = current($res->toArray());
 
         if (!empty($user)) {
+            $_SESSION['id'] = $user->_id;
             $_SESSION['email'] = $user->email;
-            $_SESSION['password'] = $user->password;
         }
     } catch (MongoDB\Driver\Exception\Exception $e) {
         $filename = basename(__FILE__);
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_SESSION['email'])) {
-    echo '<h1>Vous êtes connecté en tant que '.$_SESSION['email'].' '.$_SESSION['password'].'</h1>';
+    echo '<h1>Vous êtes connecté en tant que '.$_SESSION['email'].'</h1>';
     ?>
     <div>
         <form action="create_post.php" method="post">
