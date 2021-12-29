@@ -9,18 +9,20 @@ if (isset($_GET['id'])) {
     
             $filter = ['_id' => new MongoDB\BSON\ObjectID($_GET['id'])];
             $query = new MongoDB\Driver\Query($filter);
+
+            var_dump($_GET['id']);
     
             $res = $mng->executeQuery("Forum.Posts", $query);
             
             $post = current($res->toArray());
 
             if (!empty($post)) {
-                echo "<a href='http://localhost/forum/posts.php'>Retour bahaha</a>";
+                echo "<a href='http://localhost:8888/forum/posts.php'>Retour bahaha</a>";
                 echo "<div>id post : $post->_id</br>
                         titre post : $post->titrePost</br>
                         sujet post : $post->sujetPost</br> 
                         date : $post->date</div></br></br>";
-                echo '<form action="submit_comment.php" method="post">
+                echo '<form class="js-submit-comment" action="submit_comment.php" method="post">
                         <label for="">commentaire</label>
                         <input type="text" name="comment">
                         <input type="submit" value="submit">

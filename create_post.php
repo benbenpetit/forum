@@ -38,4 +38,6 @@ try {
     echo "On line:", $e->getLine(), "\n";
 }
 
+header('Location: http://localhost:8888/sorbonne/PHP/forum/posts.php');
+
 ?>

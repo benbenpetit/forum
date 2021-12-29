@@ -3,9 +3,9 @@ require 'vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 
+header('Location: http://localhost:8888/sorbonne/PHP/forum/post.php?id='. $_id);
+
 if (isset($_POST['submit'])) {
-    $_id = $_POST['_id'];
-    $_userId = $_SESSION['id'];
     $_postId = $_POST['postId'];
     $message = $_POST['comment'];
     $collection = $client->Forum->Posts;
