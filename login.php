@@ -28,7 +28,8 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_SESSION['email'])) {
-    echo '<h1>Vous êtes connecté en tant que '.$_SESSION['email'].'</h1>';
+    // echo '<h1>Vous êtes connecté en tant que '.$_SESSION['email'].'</h1>';
+    require('posts.php');
     ?>
     <div>
         <form action="create_post.php" method="post">
@@ -38,6 +39,8 @@ if (isset($_SESSION['email'])) {
         </form>
     </div>
     <?php
+    
+    
 
 
 } else {

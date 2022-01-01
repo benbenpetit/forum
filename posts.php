@@ -1,10 +1,22 @@
 <?php session_start();
 require 'vendor/autoload.php';
 
+require 'head.php'; 
+
 try {
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
     $query = new MongoDB\Driver\Query([]);
     $rows = $mng->executeQuery("Forum.Posts", $query);
+
+    ?>
+    <div>
+        <form action="create_post.php" method="post">
+            <input type="text" name="titrePost" required placeholder="Titre">
+            <input type="text" name="sujetPost" required placeholder="De quoi on parle? ">
+            <input type="submit" name="submit" value="submit">
+        </form>
+    </div>
+    <?php
 
     foreach ($rows as $row) {
         echo "<a href='http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id."'>id post : $row->_id</br>

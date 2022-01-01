@@ -1,8 +1,13 @@
 <?php session_start();
 require 'vendor/autoload.php';
 
+require 'head.php'; 
+
 if (isset($_GET['id'])) {
-    var_dump($_SESSION);
+    $oid = $_SESSION["id"];
+
+    // var_dump($_SESSION);
+    // var_dump("id submit a ajouter : " .$_id);
     if ($_GET['id'] != '') {
         try {
             $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
@@ -10,14 +15,18 @@ if (isset($_GET['id'])) {
             $filter = ['_id' => new MongoDB\BSON\ObjectID($_GET['id'])];
             $query = new MongoDB\Driver\Query($filter);
 
-            var_dump($_GET['id']);
-    
+            // var_dump($_GET['id']);
+            // var_dump("id submit a ajouter : " .$_id);
+            
+            var_dump($_SESSION);
+            
             $res = $mng->executeQuery("Forum.Posts", $query);
             
             $post = current($res->toArray());
 
             if (!empty($post)) {
-                echo "<a href='http://localhost:8888/forum/posts.php'>Retour bahaha</a>";
+
+                echo "<a href='http://localhost:8888/sorbonne/PHP/forum/posts.php'>Retour bahaha</a>";
                 echo "<div>id post : $post->_id</br>
                         titre post : $post->titrePost</br>
                         sujet post : $post->sujetPost</br> 
@@ -27,6 +36,7 @@ if (isset($_GET['id'])) {
                         <input type="text" name="comment">
                         <input type="submit" value="submit">
                     </form>';
+                
             }
         } catch (MongoDB\Driver\Exception\Exception $e) {
             $filename = basename(__FILE__);
@@ -39,6 +49,8 @@ if (isset($_GET['id'])) {
             echo "On line:", $e->getLine(), "\n";
         }
     } else {
-        header("Location: localhost/forum/posts.php");
+        header("Location: http://localhost:8888/sorbonne/PHP/forum/post.php?id=" . $oid ."");
+        // header("location:javascript://history.go(-1)");
+        //header("Location : http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id ."");
     }
 }

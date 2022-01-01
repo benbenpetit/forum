@@ -10,15 +10,16 @@
     <link href="./styles/style.css" rel="stylesheet"></link>
     <title>Forum</title>
 </head>
-
 <body>
     <main>
         <header>
             <nav>
                 <ul>
-                    <li><a href="">Accueil</a></li>
-                    <li><a href="">benoitpetit@gmail.com</a></li>
-                    <li><a href="">logout</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li>-</li>
+                    <li><a href=""><?php echo($_SESSION['email'])?></a></li>
+                    <li>-</li>
+                    <li><a href="deconnection.php">logout</a></li>
                 </ul>
             </nav>
         </header>

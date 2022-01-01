@@ -26,6 +26,7 @@ try {
               sujet post :   $row->sujetPost</br> 
               date :    $row->date</br> ";
     }
+    //header('Location: http://localhost:8888/sorbonne/PHP/forum/post.php?id="' .$row->_id );
 } catch (MongoDB\Driver\Exception\Exception $e) {
 
     $filename = basename(__FILE__);

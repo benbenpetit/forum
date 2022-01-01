@@ -1,4 +1,5 @@
-<?php require 'head.php'; ?>
+<!-- To display all the users of the DB - FOR TEST -->
+<?php require 'vendor/autoload.php'; ?>
 
 <body>
     <div>
