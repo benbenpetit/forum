@@ -21,5 +21,6 @@ if (isset($_POST['try_signup'])) {
         'password' => $password,
         'email' => $email,
     ]);
-    echo "<br/>inserted with object id :" . $result->getInsertedId() . "<br/><br/>";
+
+    echo '<signedup></signedup>
 }
