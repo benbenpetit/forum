@@ -3,22 +3,17 @@ const inputValue = submitCommentForm.querySelector('input[name=comment]');
 
 const submitComment = (comment) => {
   $.ajax({
-    url: "connexion.php",
+    url: "submit_comment.php",
     type: "GET",
     data: {
       "comment": comment
-    }
-    dataType: "json",
-    success: function (reponse) {
-      console.log('oui ok');
+    },
+    dataType: "text",
+    success: function (response) {
+      console.log(response);
     },
   });
 }
-
-$("#connexion").click(function () {
-  var mdp = document.getElementById("mdp").value;
-  connexion(mdp);
-});
 
 submitCommentForm.addEventListener('submit', (e) => {
   e.preventDefault();

@@ -1,7 +1,6 @@
-<!-- To display all the users of the DB - FOR TEST -->
-<?php require 'vendor/autoload.php'; ?>
+<?php require 'head.php'; ?>
 
-<body>
+<main class="container">
     <div>
         <form method="post" action="">
             <input name="_id" type="text" placeholder="id">
@@ -14,18 +13,6 @@
             <input type="submit" value="Save" name="submit">
         </form>
     </div>
-    <br />
-
-    <div>
-        <form action="login.php" method="post">
-            <input type="text" name="email" required placeholder="email">
-            <input type="password" name="password" required placeholder="mot de passe">
-            <input type="submit" name="submit" value="submit">
-        </form>
-    </div>
-</body>
-
-</html>
 
 <?php
 
@@ -53,28 +40,6 @@ if (isset($_POST['submit'])) {
     echo "<br/>inserted with object id :" . $result->getInsertedId() . "<br/><br/>";
 }
 
-// https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
-// https://moodle-sciences.upmc.fr/moodle-2021/course/view.php?id=3427
-
-
-// Insert manuel dans DB Forum ( local )
-// $collection = (new MongoDB\Client)->Forum->Users;
-
-// $insertOneResult = $collection->insertOne([
-//     '_id' => '10',
-//     'firstName' => 'Paul',
-//     'lastName' => 'Marechal',
-//     'pseudo' => 'Polo',
-//     'email' => 'paulmarechal75@gmail.com',
-//     'age' => '29',
-//     'password' => 'root'
-// ]);
-// fin insert manuel 
-
-//printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount(), "</br></br>");
-//var_dump($insertOneResult->getInsertedId());
-
-// Affichage des infos Users de la DB Forum ( local )
 try {
 
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
@@ -103,6 +68,16 @@ try {
     echo "On line:", $e->getLine(), "\n";
 }
 
+if (isset($_SESSION['email'])) {
+    echo 
+    `<div>
+        <form action="create_post.php" method="post">
+            <input type="text" name="titrePost" required placeholder="Titre">
+            <input type="text" name="sujetPost" required placeholder="De quoi on parle? ">
+            <input type="submit" name="submit" value="submit">
+        </form>
+    </div>`;
+}
 ?>
 
 </main>

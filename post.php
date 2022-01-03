@@ -1,7 +1,4 @@
-<?php session_start();
-require 'vendor/autoload.php';
-
-require 'head.php'; 
+<?php require_once 'head.php'; 
 
 if (isset($_GET['id'])) {
     $oid = $_SESSION["id"];
@@ -31,7 +28,7 @@ if (isset($_GET['id'])) {
                         titre post : $post->titrePost</br>
                         sujet post : $post->sujetPost</br> 
                         date : $post->date</div></br></br>";
-                echo '<form class="js-submit-comment" action="submit_comment.php" method="post">
+                echo '<form class="js-submit-comment">
                         <label for="">commentaire</label>
                         <input type="text" name="comment">
                         <input type="submit" value="submit">
@@ -54,3 +51,6 @@ if (isset($_GET['id'])) {
         //header("Location : http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id ."");
     }
 }
+?>
+
+<script src="./scripts/submitComment.js" async defer></script>

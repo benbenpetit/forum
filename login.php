@@ -1,48 +1,18 @@
-<?php session_start();
-
-if (isset($_POST['submit'])) {
-    try {
-        $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-
-        $filter = ['email' => $_POST['email'], 'password' => $_POST['password']];
-        $query = new MongoDB\Driver\Query($filter);
-
-        $res = $mng->executeQuery("Forum.Users", $query);
-
-        $user = current($res->toArray());
-
-        if (!empty($user)) {
-            $_SESSION['id'] = $user->_id;
-            $_SESSION['email'] = $user->email;
-        }
-    } catch (MongoDB\Driver\Exception\Exception $e) {
-        $filename = basename(__FILE__);
-
-        echo "The $filename script has experienced an error.\n";
-        echo "It failed with the following exception:\n";
-
-        echo "Exception:", $e->getMessage(), "\n";
-        echo "In file:", $e->getFile(), "\n";
-        echo "On line:", $e->getLine(), "\n";
-    }
-}
+<?php require_once('head.php');
 
 if (isset($_SESSION['email'])) {
-    // echo '<h1>Vous êtes connecté en tant que '.$_SESSION['email'].'</h1>';
-    require('posts.php');
-    ?>
-    <div>
-        <form action="create_post.php" method="post">
-            <input type="text" name="titrePost" required placeholder="Titre">
-            <input type="text" name="sujetPost" required placeholder="De quoi on parle? ">
-            <input type="submit" name="submit" value="submit">
-        </form>
-    </div>
-    <?php
-    
-    
+    header('Location: http://localhost/forum/index.php');
+} ?>
 
+<section class="container">
+    <form class="js-login-form">
+        <input type="email" name="email" required placeholder="email">
+        <input type="password" name="password" required placeholder="mot de passe">
+        <input type="submit" name="submit" value="submit">
+    </form>
+</section>
 
-} else {
-    echo '<h1>Va te faire connecter.</h1>';
-}
+<script src="./scripts/login.js"></script>
+
+</main>
+</body>

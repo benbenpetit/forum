@@ -13,13 +13,16 @@
 <body>
     <main>
         <header>
-            <nav>
+            <nav class="container">
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li>-</li>
-                    <li><a href=""><?php echo($_SESSION['email'])?></a></li>
-                    <li>-</li>
-                    <li><a href="deconnection.php">logout</a></li>
+                    <?php
+                        if (!isset($_SESSION['email'])) {
+                            echo '<li><a href="http://localhost/forum/login.php">Connexion</a><a href="http://localhost/forum/signup.php">Inscription</a></li>';
+                        } else {
+                            echo '<li><a href="http://localhost/forum/login.php">'. $_SESSION['email'] .'</a><a href="http://localhost/forum/deconnection.php">Déconnexion</a></li>';
+                        }
+                    ?>
                 </ul>
             </nav>
         </header>

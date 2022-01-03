@@ -1,7 +1,4 @@
-<?php session_start();
-require 'vendor/autoload.php';
-
-require 'head.php'; 
+<?php require 'head.php'; 
 
 try {
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
@@ -19,7 +16,7 @@ try {
     <?php
 
     foreach ($rows as $row) {
-        echo "<a href='http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id."'>id post : $row->_id</br>
+        echo "<a href='http://localhost/forum/post.php?id=".$row->_id."'>id post : $row->_id</br>
               titre post : $row->titrePost</br>
               sujet post : $row->sujetPost</br> 
               date : $row->date</a></br></br>";
