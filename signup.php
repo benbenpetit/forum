@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php require_once('head.php');
 
 if (isset($_SESSION['email'])) {
@@ -9,14 +8,6 @@ if (isset($_SESSION['email'])) {
     <div>
         <form class="js-signup-form">
             <input name="_id" type="text" placeholder="id">
-=======
-<?php require 'head.php' ?>
-
-<main class="container">
-    <div>
-        <form method="post" action="">
-            <!-- <input name="_id" type="text" placeholder="id"> -->
->>>>>>> 2d879b67ccd3f1816cca7736a07fc2cf3aa5a0d0
             <input name="firstName" type="text" placeholder="firstName">
             <input name="lastName" type="text" placeholder="lastName">
             <input name="pseudo" type="text" placeholder="pseudo">
@@ -26,14 +17,6 @@ if (isset($_SESSION['email'])) {
             <input type="submit" value="Save" name="submit">
         </form>
     </div>
-<<<<<<< HEAD
-</section>
-
-<script src="./scripts/signup.js"></script>
-
-</main>
-</body>
-=======
 
 <?php
 
@@ -89,4 +72,3 @@ if (isset($_POST['submit'])) {
 //     echo "In file:", $e->getFile(), "\n";
 //     echo "On line:", $e->getLine(), "\n";
 // }
->>>>>>> 2d879b67ccd3f1816cca7736a07fc2cf3aa5a0d0

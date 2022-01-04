@@ -1,6 +1,4 @@
-<?php 
-require 'head.php';
-session_start(); 
+<?php require 'head.php';
 
 if (isset($_SESSION['email'])) {
     require('posts.php');
