@@ -128,11 +128,107 @@ header nav ul li a::after {
   height: 1px;
   background-color: #000;
   -webkit-transform: scale3d(0, 1, 1);
-          transform: scale3d(0, 1, 1);
+  transform: scale3d(0, 1, 1);
   -webkit-transform-origin: right;
-          transform-origin: right;
+  transform-origin: right;
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0, 1);
   transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0, 1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+}
+
+
+/* Login */
+.cardLogin{
+  padding: 30px 30px 30px 30px;
+  /* background-color: rgb(116, 112, 112); */
+  margin: 0 38% 0 37%;
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(219, 219, 219, 0.911);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+}
+
+input[type="email" i] {
+  padding: 1px 2px;
+  padding-top: 5px;
+  padding-right: 145px;
+  padding-bottom: 5px;
+  padding-left: 6px;
+  margin-bottom: 0.9em;
+}
+
+input[type="password" i] {
+  -webkit-text-security: disc !important;
+  padding: 1px 2px;
+  padding-top: 5px;
+  padding-right: 145px;
+  padding-bottom: 5px;
+  padding-left: 6px;
+  margin-bottom: 3em;
+}
+
+.btnCoLogin {
+  appearance: auto;
+  user-select: none;
+  white-space: pre;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: #2ea44f;
+  box-shadow: 0 1px 1px rgb(18 21 26 / 8%);
+  color: #fff;
+  padding: 1px 2px;
+  padding-top: 8px;
+  padding-right: 120px;
+  padding-bottom: 8px;
+  padding-left: 6px;
+  border-width: 0.5px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.7);
+  box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.7);
+  text-align: center;
+  padding-left: 37%;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding: 0.5rem 1rem;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+}
+
+#connect{
+  font-size: 30px;
+  font-family: Inter,sans-serif;
+  font-weight: 500;
+  margin-bottom: 0.3em;
+  padding-top: 0.2em;
+}
+
+#connect2{
+  font-size: 16px;
+  font-family: Inter,sans-serif;
+  font-weight: 500;
+  margin-bottom: 1em;
+  padding-top: 0.2em;
+  color: #9CA3AF;
+}
+
+.textCard{
+  margin-bottom: 0.3em;
+  font-family: Inter,sans-serif;
 }
