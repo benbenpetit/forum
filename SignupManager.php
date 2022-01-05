@@ -2,8 +2,9 @@
 
 if (isset($_POST['try_signup'])) {
     $client = new MongoDB\Client("mongodb://localhost:27017");
-
-    $_id = $_POST['_id'];
+    $aleatoire = rand(1, 20000); 
+    
+    $_id = $aleatoire;
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $pseudo = $_POST['pseudo'];
@@ -22,5 +23,5 @@ if (isset($_POST['try_signup'])) {
         'email' => $email,
     ]);
 
-    echo '<signedup></signedup>
+    // echo '<signedup></signedup>
 }
