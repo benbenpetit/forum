@@ -10,16 +10,24 @@ if (isset($_SESSION['email'])) {
     header('Location: http://localhost:8888/sorbonne/PHP/forum/index.php');
 } ?>
 
- <main class="container">
+ <main class="container cardLogin">
      <div>
          <form method="post" action="">
-             <input name="firstName" type="text" placeholder="firstName">
-             <input name="lastName" type="text" placeholder="lastName">
-             <input name="pseudo" type="text" placeholder="pseudo">
-             <input name="email" type="text" placeholder="email">
-             <input name="age" type="text" placeholder="age">
-             <input name="password" type="text" placeholder="password">
-             <input type="submit" value="Save" name="submit">
+            <h3 id="connect">Inscrivez vous</h3>
+            <h5 id="connect2">Inscrivez vous en renseignant l'ensemble des champs suivants</h5>
+            <h6 class="textCard">Prénom</h6>
+             <input class="inputInscription" name="firstName" type="text" placeholder="Prénom">
+             <h6 class="textCard">Nom</h6>
+             <input class="inputInscription" name="lastName" type="text" placeholder="Nom">
+             <h6 class="textCard">Pseudo</h6>
+             <input class="inputInscription" name="pseudo" type="text" placeholder="Pseudo">
+             <h6 class="textCard">Email</h6>
+             <input class="inputInscription" name="email" type="text" placeholder="example@example.com">
+             <h6 class="textCard">Age</h6>
+             <input class="inputInscription" name="age" type="text" placeholder="Age">
+             <h6 class="textCard">Mot de passe</h6>
+             <input class="inputInscription" name="password" type="text" placeholder="Mot de passe">
+             <input class="btnCoSign" type="submit" value="Inscription" name="submit">
          </form>
      </div>
 
@@ -47,7 +55,7 @@ if (isset($_SESSION['email'])) {
          'password' => $password,
          'email' => $email,
      ]);
-     echo "<br/>inserted with object id :" . $result->getInsertedId() . "<br/><br/>";
+    //  echo "<br/>inserted with object id :" . $result->getInsertedId() . "<br/><br/>";
  }
 
  

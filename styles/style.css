@@ -151,7 +151,7 @@ header nav ul li a::after {
 
 }
 
-input[type="email" i] {
+input[type="email" i], input[type="password" i] {
   padding: 1px 2px;
   padding-top: 5px;
   padding-right: 145px;
@@ -160,17 +160,20 @@ input[type="email" i] {
   margin-bottom: 0.9em;
 }
 
-input[type="password" i] {
-  -webkit-text-security: disc !important;
+input[type="password" i]{
+  margin-bottom: 3em;
+}
+
+.inputInscription{
   padding: 1px 2px;
   padding-top: 5px;
   padding-right: 145px;
   padding-bottom: 5px;
   padding-left: 6px;
-  margin-bottom: 3em;
+  margin-bottom: 0.9em;
 }
 
-.btnCoLogin {
+.btnCoLogin, .btnCoSign {
   appearance: auto;
   user-select: none;
   white-space: pre;
@@ -193,6 +196,11 @@ input[type="password" i] {
   box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.7);
   text-align: center;
   padding-left: 37%;
+}
+
+.btnCoSign{
+  margin-top: 0.5em;
+  padding-right: 128px;
 }
 
 .btn {
