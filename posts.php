@@ -13,13 +13,21 @@ try {
             <input type="submit" name="submit" value="submit">
         </form>
     </div>
+
+    <div style="">
+
+    
     <?php
 
     foreach ($rows as $row) {
-        echo "<a href='http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id."'>id post : $row->_id</br>
-              titre post : $row->titrePost</br>
-              sujet post : $row->sujetPost</br> 
-              date : $row->date</a></br></br>";
+        // id post : $row->_id pas utile dans la card
+        echo "<div class='cardPosts'>
+        <a style='text-decoration:none; color:#000' display: inline-block;' href='http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id."'></br>
+               <p class='titrePost'>$row->titrePost</p></br>
+              <p class='sujetPost'>$row->sujetPost</p></br> 
+              <p class='datePost'>$row->date</p></a>
+              </div>
+              ";
     }
 } catch (MongoDB\Driver\Exception\Exception $e) {
 
@@ -32,3 +40,5 @@ try {
     echo "In file:", $e->getFile(), "\n";
     echo "On line:", $e->getLine(), "\n";
 }
+?>
+</div>

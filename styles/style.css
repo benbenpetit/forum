@@ -240,3 +240,18 @@ input[type="password" i]{
   margin-bottom: 0.3em;
   font-family: Inter,sans-serif;
 }
+
+.cardPosts{
+  padding: 0px 5px 15px 15px;
+  /* background-color: rgb(116, 112, 112); */
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(219, 219, 219, 0.911);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    height: 6.6em;
+    width: 15em; 
+    margin-top: 1em;
+    margin-left: 0.5em;
+    float: left;
+}

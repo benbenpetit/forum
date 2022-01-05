@@ -22,9 +22,9 @@ if (isset($_GET['id'])) {
             $post = current($res->toArray());
 
             if (!empty($post)) {
-
                 echo "<a href='http://localhost:8888/sorbonne/PHP/forum/posts.php'>Retour bahaha</a>";
-                echo "<div>id post : $post->_id</br>
+                echo "<div>
+                        id post : $post->_id</br>
                         titre post : $post->titrePost</br>
                         sujet post : $post->sujetPost</br> 
                         date : $post->date</div></br></br>";
