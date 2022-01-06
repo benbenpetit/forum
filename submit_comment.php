@@ -1,19 +1,15 @@
 <?php session_start();
 require 'vendor/autoload.php';
 
-echo $_GET['comment'];
-
 $client = new MongoDB\Client("mongodb://localhost:27017");
 
-if (isset($_POST['submit'])) {
-    $_postId = $_POST['postId'];
-    $message = $_POST['comment'];
-    $collection = $client->Forum->Posts;
-    //var_dump($collection);
+if (isset($_POST['message'])) {
+    $_post_id = $_POST['_post_id'];
+    $message = $_POST['message'];
+    $collection = $client->Forum->Messages;
     $result = $collection->insertOne([
-        '_id' => $_id,
-        '_userId' => $_userId,
-        '_postId' => $_postId,
+        '_user_id' => $_SESSION['_id'],
+        '_post_id' => $_post_id,
         'message' => $message
     ]);
     echo "<br/>inserted with object id :" . $result->getInsertedId() . "<br/><br/>";

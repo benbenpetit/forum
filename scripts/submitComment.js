@@ -1,12 +1,14 @@
 const submitCommentForm = document.querySelector('.js-submit-comment');
-const inputValue = submitCommentForm.querySelector('input[name=comment]');
+const messageValue = submitCommentForm.querySelector('input[name=comment]');
+const postIdValue = submitCommentForm.querySelector('input[name=_post_id]')
 
-const submitComment = (comment) => {
+const submitComment = (message, postId) => {
   $.ajax({
     url: "submit_comment.php",
     type: "GET",
     data: {
-      "comment": comment
+      "_post_id": postId,
+      "message": message
     },
     dataType: "text",
     success: function (response) {
@@ -17,5 +19,5 @@ const submitComment = (comment) => {
 
 submitCommentForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  submitComment(inputValue.value);
+  submitComment(messageValue.value, postIdValue.value);
 });

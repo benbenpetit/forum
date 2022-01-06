@@ -29,9 +29,10 @@ if (isset($_GET['id'])) {
                         sujet post : $post->sujetPost</br> 
                         date : $post->date</div></br></br>";
                 echo '<form class="js-submit-comment">
-                        <label for="">commentaire</label>
-                        <input type="text" name="comment">
+                        <label for="">Message</label>
+                        <input type="text" name="message">
                         <input type="submit" value="submit">
+                        <input type="hidden" name="_post_id" value="'. $post->_id .'">
                     </form>';
                 
             }
