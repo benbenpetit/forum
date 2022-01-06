@@ -1,4 +1,4 @@
-<?php require 'head.php'; 
+<?php require_once('head.php');
 
 try {
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
@@ -22,7 +22,7 @@ try {
     foreach ($rows as $row) {
         // id post : $row->_id pas utile dans la card
         echo "<div class='cardPosts'>
-        <a style='text-decoration:none; color:#000' display: inline-block;' href='http://localhost:8888/sorbonne/PHP/forum/post.php?id=".$row->_id."'></br>
+        <a style='text-decoration:none; color:#000' display: inline-block;' href='". $_ENV['BASE_URL'] ."post.php?id=".$row->_id."'></br>
                <p class='titrePost'>$row->titrePost</p></br>
               <p class='sujetPost'>$row->sujetPost</p></br> 
               <p class='datePost'>$row->date</p></a>

@@ -1,5 +1,5 @@
 const submitCommentForm = document.querySelector('.js-submit-comment');
-const messageValue = submitCommentForm.querySelector('input[name=comment]');
+const messageValue = submitCommentForm.querySelector('input[name=message]');
 const postIdValue = submitCommentForm.querySelector('input[name=_post_id]')
 
 const submitComment = (message, postId) => {

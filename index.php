@@ -1,7 +1,7 @@
-<?php require 'head.php';
+<?php require_once('head.php');
 
 if (isset($_SESSION['email'])) {
-    require('posts.php');
+    require_once('posts.php');
 }
 ?>
 

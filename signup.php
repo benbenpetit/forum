@@ -7,7 +7,7 @@
 
 
 if (isset($_SESSION['email'])) {
-    header('Location: http://localhost:8888/sorbonne/PHP/forum/index.php');
+    header('Location: '. $_ENV['BASE_URL']);
 } ?>
 
  <main class="container cardLogin">

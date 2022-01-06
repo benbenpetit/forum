@@ -1,7 +1,7 @@
-<?php require_once('head.php');
+<?php require('head.php');
 
 if (isset($_SESSION['email'])) {
-    header('Location: http://localhost:8888/sorbonne/PHP/forum/index.php');
+    header('Location: '. $_ENV['BASE_URL'] .'index.php');
 } ?>
 
 <section class="container cardLogin">
@@ -15,7 +15,6 @@ if (isset($_SESSION['email'])) {
         <input class="btnCoLogin" type="submit" name="submit" value="Connexion">
     </form>
 </section>
-
 
 <script src="./scripts/login.js"></script>
 

@@ -1,4 +1,4 @@
-<?php session_start(); require 'vendor/autoload.php'; ?>
+<?php session_start(); require_once('vendor/autoload.php'); require_once('config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,9 +18,9 @@
                     <li><a href="index.php">Accueil</a></li>
                     <?php
                         if (!isset($_SESSION['email'])) {
-                            echo '<li><a href="http://localhost:8888/sorbonne/PHP/forum/login.php">Connexion</a><a href="http://localhost:8888/sorbonne/PHP/forum/signup.php">Inscription</a></li>';
+                            echo '<li><a href="'. $_ENV['BASE_URL'] .'login.php">Connexion</a><a href="'. $_ENV['BASE_URL'] .'signup.php">Inscription</a></li>';
                         } else {
-                            echo '<li><a href="http://localhost:8888/sorbonne/PHP/forum/login.php">'. $_SESSION['email'] .'</a><a href="http://localhost:8888/sorbonne/PHP/forum/deconnection.php">Déconnexion</a></li>';
+                            echo '<li><a href="'. $_ENV['BASE_URL'] .'login.php">'. $_SESSION['email'] .'</a><a href="'. $_ENV['BASE_URL'] .'deconnection.php">Déconnexion</a></li>';
                         }
                     ?>
                 </ul>
