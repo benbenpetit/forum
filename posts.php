@@ -18,7 +18,6 @@ try {
 
     
     <?php
-
     foreach ($rows as $row) {
         // id post : $row->_id pas utile dans la card
         echo "<div class='cardPosts'>

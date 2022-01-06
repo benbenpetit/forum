@@ -50,10 +50,8 @@ if (isset($_GET['id'])) {
             $read = new MongoDB\Driver\Query($filter, $option);
             $messages = $manager->executeQuery('Forum.Messages', $read);
 
-            if (!empty($messages)) {
-                foreach ($messages as $message) {
-                    echo $message;
-                }
+            foreach ($messages as $message) {
+                echo $message;
             }
         } catch (MongoDB\Driver\Exception\Exception $e) {
             $filename = basename(__FILE__);
