@@ -31,6 +31,8 @@ if (isset($_GET['id'])) {
                         <input type="submit" value="submit">
                         <input type="hidden" name="_post_id" value="'. $post->_id .'">
                     </form>';
+            } else {
+                header("Location: ". $_ENV['BASE_URL'] ."posts.php");
             }
         } catch (MongoDB\Driver\Exception\Exception $e) {
             $filename = basename(__FILE__);
@@ -41,17 +43,22 @@ if (isset($_GET['id'])) {
             echo "Exception:", $e->getMessage(), "\n";
             echo "In file:", $e->getFile(), "\n";
             echo "On line:", $e->getLine(), "\n";
+
+            header("Location: ". $_ENV['BASE_URL'] ."posts.php");
         }
 
         try {
             $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-            $filter  = ['_post_id' => new MongoDB\BSON\ObjectID($_GET['id'])];
-            $option = [];
+            $filter  = ['_post_id' => $_GET['id']];
+            $option = ['sort' => ['date' => 1]];
             $read = new MongoDB\Driver\Query($filter, $option);
             $messages = $manager->executeQuery('Forum.Messages', $read);
 
             foreach ($messages as $message) {
-                echo $message;
+                $date = new DateTime($message->date);
+                setlocale(LC_TIME, "fr_FR", "French");
+                echo strftime("%d %B %G à %H:%M:%S", strtotime($message->date));
+                echo '<br/>';
             }
         } catch (MongoDB\Driver\Exception\Exception $e) {
             $filename = basename(__FILE__);
