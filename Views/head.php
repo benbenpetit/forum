@@ -1,4 +1,4 @@
-<?php session_start(); require_once('vendor/autoload.php'); require_once('config.php'); ?>
+<?php session_start(); require_once('../vendor/autoload.php'); require_once('../config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,9 +18,9 @@
                     <li><a href="index.php">Accueil</a></li>
                     <?php
                         if (!isset($_SESSION['email'])) {
-                            echo '<li><a href="'. $_ENV['BASE_URL'] .'login.php">Connexion</a><a href="'. $_ENV['BASE_URL'] .'signup.php">Inscription</a></li>';
+                            echo '<li><a href="'. $_ENV['BASE_URL'] .'Views/login.php">Connexion</a><a href="'. $_ENV['BASE_URL'] .'Views/signup.php">Inscription</a></li>';
                         } else {
-                            echo '<li><a href="'. $_ENV['BASE_URL'] .'login.php">'. $_SESSION['email'] .'</a><a href="'. $_ENV['BASE_URL'] .'deconnection.php">Déconnexion</a></li>';
+                            echo '<li><a href="'. $_ENV['BASE_URL'] .'Views/login.php">'. $_SESSION['email'] .'</a><a href="'. $_ENV['BASE_URL'] .'Views/deconnection.php">Déconnexion</a></li>';
                         }
                     ?>
                 </ul>

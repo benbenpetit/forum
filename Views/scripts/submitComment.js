@@ -4,7 +4,7 @@ const postIdValue = submitCommentForm.querySelector('input[name=_post_id]')
 
 const submitComment = (message, postId) => {
   $.ajax({
-    url: "submit_comment.php",
+    url: "../Manager/SubmitComment.php",
     type: "GET",
     data: {
       "_post_id": postId,
@@ -12,7 +12,7 @@ const submitComment = (message, postId) => {
     },
     dataType: "text",
     success: function (response) {
-      console.log(response);
+      location.reload();
     },
   });
 }

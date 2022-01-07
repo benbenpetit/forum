@@ -1,7 +1,7 @@
-<?php require('head.php');
+<?php require_once('head.php');
 
 if (isset($_SESSION['email'])) {
-    header('Location: '. $_ENV['BASE_URL'] .'index.php');
+    header('Location: '. $_ENV['BASE_URL'] .'Views/index.php');
 } ?>
 
 <section class="container cardLogin">

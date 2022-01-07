@@ -4,7 +4,7 @@ const passwordValue = loginForm.querySelector('input[name=password]');
 
 const tryLogin = (email, password) => {
   $.ajax({
-    url: "LoginManager.php",
+    url: "../Manager/LoginManager.php",
     type: "POST",
     data: {
       "try_login": true,
@@ -13,10 +13,9 @@ const tryLogin = (email, password) => {
     },
     dataType: "text",
     success: function (response) {
-      if (response === 'not found') {
-        console.log('not found');
+      if (response === 'not logged in') {
+        loginForm.style.backgroundColor = 'rgba(226, 195, 195, 0.911)';
       } else {
-        console.log('user found : ' + response);
         location.reload();
       }
     },

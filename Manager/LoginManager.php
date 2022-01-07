@@ -1,6 +1,7 @@
-<?php session_start(); require_once('vendor/autoload.php'); require_once('config.php');
+<?php session_start();
+require_once('../vendor/autoload.php'); require_once('../config.php');
 
-if (isset($_POST['try_login'])) {
+if (isset($_POST['try_login']) && !empty($_POST['email'] && !empty($_POST['password']))) {
     try {
         $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
@@ -20,5 +21,8 @@ if (isset($_POST['try_login'])) {
         }
     } catch (MongoDB\Driver\Exception\Exception $e) {
         $filename = basename(__FILE__);
+        echo 'not logged in';
     }
+} else {
+    echo 'not logged in';
 }
