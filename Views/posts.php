@@ -1,7 +1,15 @@
 <?php require_once('head.php');
 
+$image = 'styles/images/user.png';
+
 if (isset($_SESSION['email'])) {
     require_once('create_post.php');
+    echo '<div class="user">';
+    echo '<img class="imageProfil" src=" ' . $image . ' " alt="user_picture">';
+    echo '<h1 class="pseudoUserPosts"> ' . $_SESSION['pseudo'] . '</h1>' ;
+    echo '<h1 class="infoUserName"> ' . $_SESSION['lastName'] . ' ' . $_SESSION['firstName'] . ' </h1>' ;
+    echo '<h1 class="infoUser"> ' . $_SESSION['email'] . '</h1>' ;
+    echo '</div>';
 }
 
 try {
@@ -9,7 +17,7 @@ try {
     $query = new MongoDB\Driver\Query([]);
     $rows = $mng->executeQuery("Forum.Posts", $query);
     
-    echo '<div>';
+    echo '<div class="allPosts">';
     
     foreach ($rows as $row) {
         echo "<div class='cardPosts'>
@@ -21,6 +29,7 @@ try {
     }
     
     echo '</div>';
+
 } catch (MongoDB\Driver\Exception\Exception $e) {
 
     $filename = basename(__FILE__);

@@ -5,6 +5,7 @@ $client = new MongoDB\Client("mongodb://localhost:27017");
 
 if (isset($_GET['message'])) {
     $_user_id = $_SESSION['id'];
+    $_pseudo = $_SESSION['pseudo'];
     $_post_id = $_GET['_post_id'];
     $message = $_GET['message'];
     date_default_timezone_set('UTC');
@@ -13,6 +14,7 @@ if (isset($_GET['message'])) {
     $result = $collection->insertOne([
         '_user_id' => $_user_id,
         '_post_id' => $_post_id,
+        '_pseudo' => $_pseudo,
         'message' => $message,
         'date' => $date
     ]);

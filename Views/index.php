@@ -1,5 +1,6 @@
 <?php require_once('head.php');
 
+echo '<div class="articles">';
 if (isset($_SESSION['email'])) {
     require_once('create_post.php');
 }
@@ -8,11 +9,12 @@ try {
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
     $query = new MongoDB\Driver\Query([]);
     $rows = $mng->executeQuery("Forum.Posts", $query);
-    
-    echo '<div>';
+
+
+    echo '<div class="cardPostsIndex">';
     
     foreach ($rows as $row) {
-        echo "<div class='cardPosts'>
+        echo "<div class='cardPosts cardPostsIndex'>
                 <a style='text-decoration:none; color:#000' display: inline-block;' href='". $_ENV['BASE_URL'] ."Views/post.php?id=".$row->_id."'></br>
                 <p class='titrePost'>$row->titrePost</p></br>
                 <p class='sujetPost'>$row->sujetPost</p></br> 
@@ -20,7 +22,8 @@ try {
               </div>";
     }
     
-    echo '</div>';
+    echo '</div></div>';
+    
 } catch (MongoDB\Driver\Exception\Exception $e) {
 
     $filename = basename(__FILE__);
@@ -32,8 +35,7 @@ try {
     echo "In file:", $e->getFile(), "\n";
     echo "On line:", $e->getLine(), "\n";
 }
-?>
-
+    ?>
 </main>
 </body>
 </html>

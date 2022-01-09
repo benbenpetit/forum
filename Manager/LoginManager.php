@@ -15,6 +15,10 @@ if (isset($_POST['try_login']) && !empty($_POST['email'] && !empty($_POST['passw
         if (!empty($user->email)) {
             $_SESSION['id'] = $user->_id;
             $_SESSION['email'] = $user->email;
+            $_SESSION['firstName'] = $user->firstName;
+            $_SESSION['lastName'] = $user->lastName;
+            $_SESSION['pseudo'] = $user->pseudo;
+            $_SESSION['age'] = $user->age;
             echo $user->email;
         } else {
             echo 'not found';

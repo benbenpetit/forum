@@ -17,16 +17,14 @@ if (isset($_GET['id'])) {
             $post = current($res->toArray());
 
             if (!empty($post)) {
-                echo "<a href='posts.php'>Retour bahaha</a>";
-                echo "<div>
-                        id post : $post->_id</br>
-                        titre post : $post->titrePost</br>
-                        sujet post : $post->sujetPost</br> 
-                        date : $post->date</div></br></br>";
-                echo '<form class="js-submit-comment">
-                        <label for="">Message</label>
-                        <input type="text" name="message">
-                        <input type="submit" value="submit">
+                echo "<a class='retour' href='posts.php'><</a>";
+                echo "<div class='cardSujet'>
+                        <p class='titre'>$post->titrePost</p></br>
+                        <p class='sujet'>$post->sujetPost</p></br> 
+                        <p class='date'>$post->date<p></div></br></br>";
+                echo '<form class="js-submit-comment inputPost">
+                        <input class="inputText" type="text" name="message">
+                        <input class="submitButton" type="submit" value=">">
                         <input type="hidden" name="_post_id" value="'. $post->_id .'">
                     </form>';
             } else {
@@ -52,12 +50,20 @@ if (isset($_GET['id'])) {
             $read = new MongoDB\Driver\Query($filter, $option);
             $messages = $manager->executeQuery('Forum.Messages', $read);
 
+            echo '<div class="messages">';
             foreach ($messages as $message) {
                 $date = new DateTime($message->date);
                 setlocale(LC_TIME, "fr_FR", "French");
-                echo strftime("%d %B %G à %H:%M:%S", strtotime($message->date));
+                echo '<div class="messagesPost">';
+                echo '<p class="pseudoUser">👤 '. ($message->_pseudo) . '</p>';
                 echo '<br/>';
+                echo '<p> '. ($message->message) . '</p>';
+                echo '<p class="dateMessage"> ' . strftime("%d %B %G à %H:%M:%S", strtotime($message->date) . '</p>');
+                echo '</br>';
+                echo '</div>';
+                echo '</br>';
             }
+            echo "</div>";
         } catch (MongoDB\Driver\Exception\Exception $e) {
             $filename = basename(__FILE__);
     

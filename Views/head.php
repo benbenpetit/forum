@@ -14,13 +14,13 @@
     <main>
         <header>
             <nav class="container">
-                <ul>
+                <ul class="nav">
                     <li><a href="index.php">Accueil</a></li>
                     <?php
                         if (!isset($_SESSION['email'])) {
                             echo '<li><a href="'. $_ENV['BASE_URL'] .'Views/login.php">Connexion</a><a href="'. $_ENV['BASE_URL'] .'Views/signup.php">Inscription</a></li>';
                         } else {
-                            echo '<li><a href="'. $_ENV['BASE_URL'] .'Views/login.php">'. $_SESSION['email'] .'</a><a href="'. $_ENV['BASE_URL'] .'Views/deconnection.php">Déconnexion</a></li>';
+                            echo '<li><a href="'. $_ENV['BASE_URL'] .'Views/login.php">'. $_SESSION['pseudo'] .'</a><a href="'. $_ENV['BASE_URL'] .'Views/deconnection.php">Déconnexion</a></li>';
                         }
                     ?>
                 </ul>
