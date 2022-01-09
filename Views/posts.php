@@ -11,7 +11,7 @@ if (isset($_SESSION['email'])) {
 echo "<div class='flex-container'>"; 
 
 try {
-    $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+    $mng = new MongoDB\Driver\Manager("mongodb+srv://benoit:benoit@cluster0.ptqrq.mongodb.net/forum?authSource=admin&replicaSet=atlas-144ubf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
     $query = new MongoDB\Driver\Query([]);
     $rows = $mng->executeQuery("Forum.Posts", $query);
     

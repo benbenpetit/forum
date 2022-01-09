@@ -3,7 +3,7 @@ require_once('../vendor/autoload.php'); require_once('../config.php');
 
 if (isset($_POST['try_login']) && !empty($_POST['email'] && !empty($_POST['password']))) {
     try {
-        $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+        $mng = new MongoDB\Driver\Manager("mongodb+srv://benoit:benoit@cluster0.ptqrq.mongodb.net/forum?authSource=admin&replicaSet=atlas-144ubf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
 
         $filter = ['email' => $_POST['email'], 'password' => $_POST['password']];
         $query = new MongoDB\Driver\Query($filter);

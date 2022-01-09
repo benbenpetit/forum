@@ -6,7 +6,7 @@ echo '<div class="post-section">';
 if (isset($_GET['id'])) {
     if ($_GET['id'] != '') {
         try {
-            $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+            $mng = new MongoDB\Driver\Manager("mongodb+srv://benoit:benoit@cluster0.ptqrq.mongodb.net/forum?authSource=admin&replicaSet=atlas-144ubf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
     
             $filter = ['_id' => new MongoDB\BSON\ObjectID($_GET['id'])];
             $query = new MongoDB\Driver\Query($filter);
@@ -54,7 +54,7 @@ if (isset($_GET['id'])) {
         }
 
         try {
-            $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+            $manager = new MongoDB\Driver\Manager("mongodb+srv://benoit:benoit@cluster0.ptqrq.mongodb.net/forum?authSource=admin&replicaSet=atlas-144ubf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
             $filter  = ['_post_id' => $_GET['id']];
             $option = ['sort' => ['date' => 1]];
             $read = new MongoDB\Driver\Query($filter, $option);
