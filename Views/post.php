@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
                 echo '<p class="pseudoUser">👤 '. ($message->_pseudo) . '</p>';
                 echo '<br/>';
                 echo '<p> '. ($message->message) . '</p>';
-                echo '<p class="dateMessage"> ' . strftime("%d %B %G à %H:%M:%S", strtotime($message->date) . '</p>');
+                echo '<p class="dateMessage"> ' . strftime("%d %B %G à %H:%M:%S", strtotime($message->date)) . '</p>';
                 echo '</br>';
                 echo '</div>';
                 echo '</br>';
