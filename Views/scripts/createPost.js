@@ -1,6 +1,6 @@
 const submitPostForm = document.querySelector('.js-submit-post');
 const titleValue = submitPostForm.querySelector('input[name=title-post]');
-const textValue = submitPostForm.querySelector('input[name=message-post]')
+const textValue = submitPostForm.querySelector('textarea[name=message-post]')
 
 const submitPost = (title, text) => {
   $.ajax({

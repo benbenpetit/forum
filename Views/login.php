@@ -4,15 +4,14 @@ if (isset($_SESSION['email'])) {
     header('Location: '. $_ENV['BASE_URL'] .'Views/index.php');
 } ?>
 
-<section class="container cardLogin">
+<section class="o-container cardLogin">
     <form class="js-login-form">
-        <h3 id="connect">Connectez vous</h3>
-        <h5 id="connect2">Connectez vous en utilisant votre mail et mot de passe</h5>
-        <h6 class="textCard">Email</h6>
+        <h3>Connectez-vous</h3>
+        <label for="email">Email</label>
         <input type="email" name="email" required placeholder="example@example.com">
-        <h6 class="textCard">Votre mot de passe</h6>
+        <label for="password">Votre mot de passe</label>
         <input type="password" name="password" required placeholder="mot de passe">
-        <input class="btnCoLogin" type="submit" name="submit" value="Connexion">
+        <button>Connexion</button>
     </form>
 </section>
 

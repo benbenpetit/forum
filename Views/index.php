@@ -1,24 +1,26 @@
 <?php require_once('head.php');
 
-echo '<div class="articles">';
+echo '<section class="o-container">';
+
 if (isset($_SESSION['email'])) {
     require_once('create_post.php');
 }
 
 try {
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-    $query = new MongoDB\Driver\Query([]);
+    $query = new MongoDB\Driver\Query([], ['limit' => 12]);
     $rows = $mng->executeQuery("Forum.Posts", $query);
 
-
-    echo '<div class="cardPostsIndex">';
+    echo '<div class="postsGrid">';
+    setlocale(LC_TIME, "fr_FR", "French");
     
     foreach ($rows as $row) {
-        echo "<div class='cardPosts cardPostsIndex'>
-                <a style='text-decoration:none; color:#000' display: inline-block;' href='". $_ENV['BASE_URL'] ."Views/post.php?id=".$row->_id."'></br>
-                <p class='titrePost'>$row->titrePost</p></br>
-                <p class='sujetPost'>$row->sujetPost</p></br> 
-                <p class='datePost'>$row->date</p></a>
+        echo "<div class='postCard'>
+                <a href='". $_ENV['BASE_URL'] ."Views/post.php?id=".$row->_id."'>
+                    <h3 class='titrePost'>$row->titrePost</h3>
+                    <p class='sujetPost'>$row->sujetPost</p>
+                    <span class='datePost'>Le ".strftime("%d %B %G à %H:%M:%S", strtotime($row->date))."</span>
+                </a>
               </div>";
     }
     
@@ -35,7 +37,9 @@ try {
     echo "In file:", $e->getFile(), "\n";
     echo "On line:", $e->getLine(), "\n";
 }
-    ?>
+?>
+
+</section>
 </main>
 </body>
 </html>

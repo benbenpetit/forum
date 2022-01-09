@@ -13,7 +13,7 @@
 <body>
     <main>
         <header>
-            <nav class="container">
+            <nav class="o-container">
                 <ul class="nav">
                     <li><a href="index.php">Accueil</a></li>
                     <?php

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,6 +49,12 @@ table {
   border-spacing: 0;
 }
 
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
 *,
 *::before,
 *::after {
@@ -55,34 +62,28 @@ table {
           box-sizing: border-box;
 }
 
+html,
 body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
   padding-top: 120px;
+  padding-bottom: 40px;
   background-image: url("images/background.jpeg");
   background-repeat: no-repeat;
-}
-
-.imageProfil {
-  width: 100px;
-  margin-top: 0.5em;
-  background-repeat: no-repeat;
-  margin-left: 30%;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1300px;
-  padding-left: 20px;
-  padding-right: 20px;
+  background-size: cover;
 }
 
 header {
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   right: 0;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
-          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   background-color: #fff;
 }
 
@@ -129,7 +130,7 @@ header nav ul li a:hover::after {
 }
 
 header nav ul li a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -146,8 +147,450 @@ header nav ul li a::after {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0, 1);
 }
 
+.o-container {
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.createPost {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.createPost h2 {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.createPost form {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  gap: 10px;
+}
+
+.createPost form input {
+  display: block;
+}
+
+.createPost form input[type=text],
+.createPost form textarea {
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.createPost form input[type=submit] {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.createPost form input[type=submit]:hover {
+  background-color: #f8f8f8;
+}
+
+.postsGrid {
+  width: 100%;
+  margin-top: 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+}
+
+.postsGrid .postCard {
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+
+.postsGrid .postCard a {
+  display: block;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.postsGrid .postCard h3 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.postsGrid .postCard p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  line-height: 1.3;
+  margin-top: 20px;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.postsGrid .postCard span {
+  margin-top: 30px;
+  display: block;
+  font-size: 12px;
+  text-align: right;
+}
+
+.post-section {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 20px;
+}
+
+.post-section > a {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  left: 0;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-section > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+}
+
+.post-section > div .cardSujet {
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.post-section > div .cardSujet .pseudo {
+  display: inline-block;
+  font-size: 16px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+
+.post-section > div .cardSujet .date {
+  font-size: 14px;
+}
+
+.post-section > div .cardSujet .message {
+  margin-top: 20px;
+}
+
+.post-section > div .cardSujet h3 {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.post-section > div .cardSujet p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.post-section > div .inputPost {
+  margin-top: 20px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.post-section > div .inputPost h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.post-section > div .inputPost input {
+  display: block;
+}
+
+.post-section > div .inputPost textarea {
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.post-section > div .inputPost input[type=submit] {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.post-section > div .inputPost input[type=submit]:hover {
+  background-color: #f8f8f8;
+}
+
+.post-section > div .messages {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16px;
+}
+
+.post-section > div .messages h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.post-section > div .messages .messagesPost {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.post-section > div .messages .messagesPost .pseudo {
+  display: inline-block;
+  font-size: 16px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+
+.post-section > div .messages .messagesPost .date {
+  font-size: 14px;
+}
+
+.post-section > div .messages .messagesPost .message {
+  margin-top: 20px;
+}
+
+.allPosts-section .flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.allPosts-section .flex-container .allPosts {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+}
+
+.allPosts-section .flex-container .allPosts .postCard {
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+
+.allPosts-section .flex-container .allPosts .postCard a {
+  display: block;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.allPosts-section .flex-container .allPosts .postCard h3 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.allPosts-section .flex-container .allPosts .postCard p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  line-height: 1.3;
+  margin-top: 20px;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.allPosts-section .flex-container .allPosts .postCard span {
+  margin-top: 30px;
+  display: block;
+  font-size: 12px;
+  text-align: right;
+}
+
+.allPosts-section .flex-container .user {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 300px;
+          flex: 0 0 300px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+  left: 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.allPosts-section .flex-container .user .imageProfil {
+  width: 80px;
+  margin-top: 0.5em;
+}
+
+.allPosts-section .flex-container .user .pseudoUserPosts {
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.6em;
+  margin-top: 0.5em;
+  margin-bottom: 0.8em;
+}
+
+.allPosts-section .flex-container .user .infoUserName {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.allPosts-section .flex-container .user .infoUser {
+  font-weight: 400;
+  font-size: 18px;
+}
+
 /* Login */
 .cardLogin {
+  width: 100%;
+  max-width: 400px;
   padding: 30px 30px 30px 30px;
   background: rgba(255, 255, 255, 0.25);
   -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -156,301 +599,37 @@ header nav ul li a::after {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  height: 22em;
-  width: 22em;
 }
 
-input[type="email" i], input[type="password" i] {
-  padding: 1px 2px;
-  padding-top: 5px;
-  padding-right: 145px;
-  padding-bottom: 5px;
-  padding-left: 6px;
-  margin-bottom: 0.9em;
-  border-radius: 5px;
-  height: 2.5em;
+.cardLogin h3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.cardLogin input[type=email],
+.cardLogin input[type=password],
+.cardLogin input[type=text] {
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 100%;
   border: none;
+  margin-bottom: 16px;
+  outline: none;
 }
 
-input[type="password" i] {
-  margin-bottom: 3em;
-}
-
-.inputInscription {
-  padding: 1px 2px;
-  padding-top: 5px;
-  padding-right: 145px;
-  padding-bottom: 5px;
-  padding-left: 6px;
-  margin-bottom: 0.9em;
-}
-
-.btnCoLogin, .btnCoSign {
-  -webkit-appearance: auto;
-     -moz-appearance: auto;
-          appearance: auto;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  white-space: pre;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  text-align: center;
-  cursor: default;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #2ea44f;
-  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
-          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
-  color: #fff;
-  padding: 1px 2px;
-  padding-top: 8px;
-  padding-right: 120px;
-  padding-bottom: 8px;
-  padding-left: 6px;
-  border-width: 0.5px;
-  border-radius: 8px;
-  -webkit-box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.7);
-  text-align: center;
-  padding-left: 37%;
-  border: none;
-}
-
-.btnCoSign {
-  margin-top: 0.5em;
-  padding-right: 128px;
-}
-
-.btn {
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  cursor: pointer;
+.cardLogin label {
+  margin-bottom: 4px;
   display: inline-block;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  padding: 0.5rem 1rem;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-       user-select: none;
-  vertical-align: middle;
 }
 
-#connect {
-  font-size: 30px;
-  font-family: Inter,sans-serif;
-  font-weight: 500;
-  margin-bottom: 0.3em;
-  padding-top: 0.2em;
-}
-
-#connect2 {
-  font-size: 16px;
-  font-family: Inter,sans-serif;
-  font-weight: 500;
-  margin-bottom: 1em;
-  padding-top: 0.2em;
-  color: #9CA3AF;
-}
-
-.textCard {
-  margin-bottom: 0.3em;
-  font-family: Inter,sans-serif;
-}
-
-.cardPosts {
-  padding: 0px 5px 15px 15px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  height: 6.6em;
-  width: 16%;
-  margin-top: 1em;
-  margin-left: 0.5em;
-  float: left;
-}
-
-.allPosts {
-  width: 83%;
-}
-
-.cardSujet {
-  padding: 15px 5px 15px 15px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  height: 10%;
-  width: 60%;
-  margin: 0 auto 0 auto;
-}
-
-.titre {
-  font-family: Times, "Times New Roman", Georgia, serif;
-  font-size: 1.5em;
-}
-
-.sujet {
-  font-size: 1.2em;
-}
-
-.date {
-  font-size: 0.9em;
-  text-align: right;
-}
-
-.inputPost {
-  margin-right: 20%;
-  margin-left: 20%;
-}
-
-.sujetPost {
-  margin-bottom: 0.5em;
-}
-
-.inputText {
-  height: 2.6em;
+.cardLogin button {
   width: 100%;
-  border-radius: 5px;
   border: none;
-}
-
-.submitButton {
-  background-color: #f0f0f0;
-  font-size: 1.5em;
-  border: none;
-  border-radius: 50%;
-  margin-left: -2.1%;
-  border-radius: 5px;
-  margin-top: 0.1em;
-  position: absolute;
-  z-index: 0;
-}
-
-.submitButtonPost {
-  background-color: #f0f0f0;
-  font-size: 1.5em;
-  border: none;
-  border-radius: 50%;
-  margin-left: -5%;
-  border-radius: 5px;
-  margin-top: 0.1em;
-  position: absolute;
-  z-index: 0;
-}
-
-.messagesPost {
-  padding: 10px 5px 15px 15px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  height: 6.6em;
-  width: 30em;
-  margin-top: 2em;
-  margin-left: 0.5em;
-  margin-left: 44%;
-}
-
-.dateMessage {
-  padding-left: 60%;
-  padding-top: 5%;
-}
-
-.pseudoUser {
-  font-weight: 900;
-}
-
-.messages {
-  width: 100%;
-  height: 400px;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-}
-
-.retour {
-  margin-top: 2.6em;
-  margin-left: 3em;
-  position: absolute;
-  padding: 15px 15px 15px 15px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  text-align: center;
-  text-decoration: none;
-  color: #000;
-  font-weight: 900;
-}
-
-.createPost {
-  padding: 15px 15px 15px 15px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -2em;
-  margin-bottom: 0.5em;
-}
-
-.user {
-  padding: 15px 15px 15px 15px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 20%;
-  height: 40%;
-  position: absolute;
-  margin-left: 75%;
-  margin-top: 1em;
-  margin-right: 2em;
-}
-
-.pseudoUserPosts {
-  font-weight: 900;
-  text-align: center;
-  font-size: 1.6em;
-  margin-top: 0.5em;
-  margin-bottom: 0.8em;
-}
-
-.infoUser {
-  font-weight: 500;
-  font-size: 1.2em;
-  margin-bottom: 0.4em;
-}
-
-.infoUserName {
-  font-weight: 500;
-  font-size: 1.5em;
-  margin-bottom: 0.6em;
+  background-color: #4bd38f;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px 12px;
 }
 /*# sourceMappingURL=style.css.map */

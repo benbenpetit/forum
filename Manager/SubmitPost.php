@@ -10,6 +10,7 @@ if (isset($_GET['create-post'])) {
     $date = date("Y-m-d H:i:s");
     $collection = $client->Forum->Posts;
     $result = $collection->insertOne([
+        '_pseudo' => $_SESSION['pseudo'],
         'titrePost' => $titrePost,
         'sujetPost' => $sujetPost,
         'date' => $date,
