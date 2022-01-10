@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
             $filter = ['_id' => new MongoDB\BSON\ObjectID($_GET['id'])];
             $query = new MongoDB\Driver\Query($filter);
             
-            $res = $mng->executeQuery("Forum.Posts", $query);
+            $res = $mng->executeQuery("forum.Posts", $query);
             
             $post = current($res->toArray());
 
@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
             $filter  = ['_post_id' => $_GET['id']];
             $option = ['sort' => ['date' => 1]];
             $read = new MongoDB\Driver\Query($filter, $option);
-            $messages = $manager->executeQuery('Forum.Messages', $read);
+            $messages = $manager->executeQuery('forum.Messages', $read);
             
             echo '<div class="messages">';
             if (!$messages->isDead()) {

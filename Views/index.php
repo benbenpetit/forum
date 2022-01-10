@@ -9,8 +9,10 @@ if (isset($_SESSION['email'])) {
 try {
     $mng = new MongoDB\Driver\Manager("mongodb+srv://benoit:benoit@cluster0.ptqrq.mongodb.net/forum?authSource=admin&replicaSet=atlas-144ubf-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
     $query = new MongoDB\Driver\Query([], ['limit' => 12]);
-    $rows = $mng->executeQuery("Forum.Posts", $query);
+    $rows = $mng->executeQuery("forum.Posts", $query);
 
+    echo "<div class='postsSection'>";
+    echo "<h2>Tous les posts</h2>";
     echo '<div class="postsGrid">';
     setlocale(LC_TIME, "fr_FR", "French");
     
@@ -24,7 +26,7 @@ try {
               </div>";
     }
     
-    echo '</div></div>';
+    echo '</div></div></div>'; 
     
 } catch (MongoDB\Driver\Exception\Exception $e) {
 
